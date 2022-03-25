@@ -7,12 +7,15 @@
         v-model="value"
     />
     <button @click="addToCounter(parseInt(value))">+</button>
+    <div>
+        <button @click="addRandomNumber"  class="btn">Add By Random Number</button>
+    </div>
 </template>
 
 
 <script>
 
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
     name: 'Counter',
@@ -26,6 +29,7 @@ export default {
     },
     methods: {
         ...mapMutations(["addToCounter", "subtractFromCounter"]),
+        ...mapActions(["addRandomNumber"]),
     }
 }
 </script>
@@ -46,5 +50,13 @@ export default {
         padding: 0.4rem;
         margin: 0 0.5rem;
         text-align: center;
+    }
+    .btn {
+        border-radius: 0.5rem;
+        width: auto;
+        background-color: #41b983;
+        margin-top: 1rem;
+        color: white;
+        cursor: pointer;
     }
 </style>
